@@ -1,114 +1,114 @@
 <template>
-    <d-card class="card-small mb-3" id="calcResult">
-        <d-card-header class="border-bottom">
-            <h6 class="card-title">{{ghgcalcmethodtitle}}</h6>
-        </d-card-header>
-        <d-card-body>
-            <d-form>
-                <!-- ghg part -->
-                <div class="form-group">
-                    <label class="form-label">Объем потребления топлива, М, тонн:</label>
-                    <d-input v-model.number="input.fuelUsed" type="number" v-bind:precision="2" class="mb-2" />
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Техническое состояния автомобиля (П):</label>
-                    <d-form-select v-model="vehiclecondition" :options="vehicleconditionoptions" />
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Годы эксплуатации (R):</label>
-                    <d-form-select v-model="yearsused" :options="yearsusedoptions" />
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Удельный Коэффициент выбросов СО2:</label>
-                    <d-form-select v-model="emissionfactorco2" :options="emissionfactorco2options"
-                        @input="emissionFactorco2Select" />
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Коэффициенты выбросов N2O и CH4 по умолчанию для дорожного
-                        транспорта:</label>
-                    <v-select v-model="selectedch4n2o" :options="optionsch4n2o" label="title">
-                        <template slot="option" slot-scope="option">
-                            {{ option.title }}
-                        </template>
-                    </v-select>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Тип автотранспорта:</label>
-                    <d-form-select v-model="vehicletype" :options="vehicletypeoptions" />
-                </div>
-                <div id="exportContent" ref="printMe" >
-                    <template v-if="vehicletype">
-                        <div class="mb-2">
-                            <label>Выбранные параметры:</label>
-                            <table class="meta-table">
-                                <thead>
-                                    <tr>
-                                        <th>Объем потребления топлива, тыс.тонн</th>
-                                        <th>Техническое состояния автомобиля (П)</th>
-                                        <th>Годы эксплуатации (R)</th>
-                                        <th>Удельный Коэффициент выбросов СО2 т/ТДж</th>
-                                        <th>Выбранный коэффициент выбросов N2O по умолчанию для дорожного транспорта
-                                        </th>
-                                        <th>Выбранный коэффициент выбросов CH4 по умолчанию для дорожного транспорта
-                                        </th>
-                                        <th>Переводные множители для расчета выбросов СО2</th>
-                                    </tr>
-                                </thead>
-                                <tr>
-                                    <td data-label="Объем потребления топлива, тыс.тонн:">{{ fuelUsedThousand }}</td>
-                                    <td data-label="Техническое состояния автомобиля (П):">{{ yearsused }}</td>
-                                    <td data-label="Годы эксплуатации (R):">{{ yearsused }}</td>
-                                    <td data-label="Удельный Коэффициент выбросов СО2 т/ТДж:">{{ emissionfactorco2 }}
-                                    </td>
-                                    <td
-                                        data-label="Выбранный коэффициент выбросов N2O по умолчанию для дорожного транспорта:">
-                                        {{ selectedch4n2o.n2odefault }}</td>
-                                    <td
-                                        data-label="Выбранный коэффициент выбросов CH4 по умолчанию для дорожного транспорта:">
-                                        {{ selectedch4n2o.ch4default }}</td>
-                                    <td data-label="Переводные множители для расчета выбросов СО2:">{{ vehicletype }}
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="mb-2">
-                            <label>Результат расчета:</label>
-                            <table class="meta-table">
-                                <thead>
-                                    <tr>
-                                        <th>Объем выбросов CO2 (оксид углерода), тонн</th>
-                                        <th>Объем выбросов N2O (закись азота), тонн </th>
-                                        <th>Объем выбросов CH4 (метан), тонн</th>
-                                        <th>Объем выбросов ПГ в CO2 эквив., тонн </th>
-                                    </tr>
-                                </thead>
-                                <tr>
-                                    <td data-label="Объем выбросов CO2 (оксид углерода), тонн:">{{ co2emission }}</td>
-                                    <td data-label="Объем выбросов N2O (закись азота), тонн:">{{ no2emission }}</td>
-                                    <td data-label="Объем выбросов CH4 (метан), тонн:">{{ ch4emission }}</td>
-                                    <td data-label="Объем выбросов ПГ в CO2 эквив., тонн:">{{ co2equivemission }}</td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div>
-                            <d-button outline size="sm" @click.prevent="export2Doc('exportContent');">
-                                Сохранить как .doc
-                            </d-button>
+  <d-card class="card-small mb-3" id="calcResult">
+    <d-card-header class="border-bottom">
+      <h6 class="card-title">{{ghgcalcmethodtitle}}</h6>
+    </d-card-header>
+    <d-card-body>
+      <d-form>
+        <!-- ghg part -->
+        <div class="form-group">
+          <label class="form-label">Объем потребления топлива, М, тонн:</label>
+          <d-input v-model.number="input.fuelUsed" type="number" v-bind:precision="2" class="mb-2" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Техническое состояния автомобиля (П):</label>
+          <d-form-select v-model="vehiclecondition" :options="vehicleconditionoptions" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Годы эксплуатации (R):</label>
+          <d-form-select v-model="yearsused" :options="yearsusedoptions" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Удельный Коэффициент выбросов СО2:</label>
+          <d-form-select v-model="emissionfactorco2" :options="emissionfactorco2options"
+            @input="emissionFactorco2Select" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Коэффициенты выбросов N2O и CH4 по умолчанию для дорожного
+            транспорта:</label>
+          <v-select v-model="selectedch4n2o" :options="optionsch4n2o" label="title">
+            <template slot="option" slot-scope="option">
+              {{ option.title }}
+            </template>
+          </v-select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Тип автотранспорта:</label>
+          <d-form-select v-model="vehicletype" :options="vehicletypeoptions" />
+        </div>
+        <div id="exportContent" ref="printMe">
+          <template v-if="vehicletype">
+            <div class="mb-2">
+              <label>Выбранные параметры:</label>
+              <table class="meta-table">
+                <thead>
+                  <tr>
+                    <th>Объем потребления топлива, тыс.тонн</th>
+                    <th>Техническое состояния автомобиля (П)</th>
+                    <th>Годы эксплуатации (R)</th>
+                    <th>Удельный Коэффициент выбросов СО2 т/ТДж</th>
+                    <th>Выбранный коэффициент выбросов N2O по умолчанию для дорожного транспорта
+                    </th>
+                    <th>Выбранный коэффициент выбросов CH4 по умолчанию для дорожного транспорта
+                    </th>
+                    <th>Переводные множители для расчета выбросов СО2</th>
+                  </tr>
+                </thead>
+                <tr>
+                  <td data-label="Объем потребления топлива, тыс.тонн:">{{ fuelUsedThousand }}</td>
+                  <td data-label="Техническое состояния автомобиля (П):">{{ yearsused }}</td>
+                  <td data-label="Годы эксплуатации (R):">{{ yearsused }}</td>
+                  <td data-label="Удельный Коэффициент выбросов СО2 т/ТДж:">{{ emissionfactorco2 }}
+                  </td>
+                  <td data-label="Выбранный коэффициент выбросов N2O по умолчанию для дорожного транспорта:">
+                    {{ selectedch4n2o.n2odefault }}</td>
+                  <td data-label="Выбранный коэффициент выбросов CH4 по умолчанию для дорожного транспорта:">
+                    {{ selectedch4n2o.ch4default }}</td>
+                  <td data-label="Переводные множители для расчета выбросов СО2:">{{ vehicletype }}
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="mb-2">
+              <label>Результат расчета:</label>
+              <table class="meta-table">
+                <thead>
+                  <tr>
+                    <th>Объем выбросов CO2 (оксид углерода), тонн</th>
+                    <th>Объем выбросов N2O (закись азота), тонн </th>
+                    <th>Объем выбросов CH4 (метан), тонн</th>
+                    <th>Объем выбросов ПГ в CO2 эквив., тонн </th>
+                  </tr>
+                </thead>
+                <tr>
+                  <td data-label="Объем выбросов CO2 (оксид углерода), тонн:">{{ co2emission }}</td>
+                  <td data-label="Объем выбросов N2O (закись азота), тонн:">{{ no2emission }}</td>
+                  <td data-label="Объем выбросов CH4 (метан), тонн:">{{ ch4emission }}</td>
+                  <td data-label="Объем выбросов ПГ в CO2 эквив., тонн:">{{ co2equivemission }}</td>
+                </tr>
+              </table>
+            </div>
 
-                            <d-button outline size="sm" @click.prevent="print">
-                                Распечатать результат
-                            </d-button>
-                        </div>
-                    </template>
+            <div class="d-flex">
+              <d-button outline size="sm" @click.prevent="export2Doc('exportContent');">
+                Сохранить как .doc
+              </d-button>
 
-                    <template v-else>
-                        <label>Введите необходимые поля для отображения результатов расчета</label>
-                    </template>
-                </div>
-                <!-- end of ghg part -->
-            </d-form>
-        </d-card-body>
-    </d-card>
+              <d-button outline class="ml-auto" size="sm" @click.prevent="print">
+                Распечатать результат
+              </d-button>
+              
+            </div>
+          </template>
+
+          <template v-else>
+            <label>Введите необходимые поля для отображения результатов расчета</label>
+          </template>
+        </div>
+        <!-- end of ghg part -->
+      </d-form>
+    </d-card-body>
+  </d-card>
 </template>
 
 <script>
