@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # promo
 
 ## Project setup
@@ -27,3 +28,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+=======
+# demo
+EcoMarine Demo
+>>>>>>> dff25f0e5923ba1afddd5179fead8c4a2627e11c
