@@ -12,8 +12,8 @@
             <div class="card-deck">
               <div class="col-md-12 col-lg-4">
                 <div class="card mb-4">
-                  <img class="card-img-top" src="http://promo.ecomarine.kz/assets/images/mbr-1547x1080.jpg"
-                    alt="Card image cap">
+                  <img class="card-img-top" src="@/assets/inventory.jpg"
+                    alt="Быстрая инвентаризация">
                   <div class="card-body">
                     <h4 class="card-title">Проведите инвентаризацию</h4>
                     <p class="card-text">Зарегистрируйтесь в системе "ЭкоМарин" и проведите инвентаризацию источников
@@ -26,7 +26,7 @@
 
               <div class="col-md-12 col-lg-4">
                 <div class="card mb-4">
-                  <img class="card-img-top" src="http://promo.ecomarine.kz/assets/images/02.jpg" alt="Card image cap">
+                  <img class="card-img-top" src="@/assets/responsible.jpg" alt="Система напоминаний">
                   <div class="card-body">
                     <h4 class="card-title">Назначьте ответственных лиц</h4>
                     <p class="card-text">Назначьте ответственных лиц за предоставление периодических данных и укажите
@@ -42,7 +42,7 @@
               <div class="col-md-12 col-lg-4">
                 <div class="card mb-4">
                   <img class="card-img-top"
-                    src="http://promo.ecomarine.kz/assets/images/william-iven-22449-4288x2848.jpg" alt="Card image cap">
+                    src="@/assets/reports.jpg" alt="Автоматические отчеты">
                   <div class="card-body">
                     <h4 class="card-title">Получайте автоматические отчеты</h4>
                     <p class="card-text">Как только ответственные лица заполнят периодические данные – “ЭкоМарин”
