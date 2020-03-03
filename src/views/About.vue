@@ -1,17 +1,5 @@
 <template>
   <d-container fluid class="main-content-container px-0 mt-0">
-    <!-- 
-    <d-row>
-      <d-col>1 / 3</d-col>
-      <d-col>2 / 3</d-col>
-      <d-col>3 / 3</d-col>
-    </d-row>
-
-    <d-row>
-      <d-col>1 / 2</d-col>
-      <d-col>2 / 2</d-col>
-    </d-row> -->
-
     <d-row>
       <d-col>
         <div class="header">
@@ -171,7 +159,7 @@ a {
   backface-visibility: hidden;
   scale: (1.0, 1.0);
   transform: translateZ(0);
-  background: #1B2030 url(https://images.unsplash.com/photo-1571993142257-eae0b44cf0f1?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ) 50% 0 no-repeat;
+  background: #1B2030 url(../assets/mountain.jpeg) 50% 0 no-repeat;
   background-size: 100%;
   background-attachment: fixed;
   animation: grow 360s linear 10ms infinite;

@@ -23,7 +23,7 @@ const defaultMenuItems = [
   },
   {
     title: 'Про нас',
-    to: 'about',
+    to: 'aboutproject',
   },
 ]
 

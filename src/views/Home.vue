@@ -2,20 +2,6 @@
 
   <d-container fluid class="main-content-container px-0 mt-0">
     <Hero />
-    <!-- Inner Wrapper -->
-    <!-- <div class="inner-wrapper mt-auto mb-auto container">
-          <div class="row">
-            <div class="col-md-7">
-                <h1 class="welcome-heading display-4 text-white">Платформа ЭкоМарин</h1>
-                <p class="text-white">Автоматизация расчетов выбросов загрязняющих веществ любых производств.</p>
-                <a href="#our-services" class="btn btn-lg btn-outline-white btn-pill align-self-center">Learn More</a>
-            </div>
-          </div>
-        </div> -->
-    <!-- / Inner Wrapper -->
-
-
-
     <!-- Our Blog Section -->
     <div class="blog section section-invert py-4">
       <h3 class="section-title text-center m-5">Как в три шага автоматизировать процесс управления выбросами
@@ -35,7 +21,6 @@
                       выбросов находясь рядом с оборудованием или получив данные из проектной документации.
                       Укажите методику расчета выбросов на каждый источник будь то оборудование или процесс и иные
                       характеристики по желанию. </p>
-                    <a class="btn btn-primary btn-pill" href="#">Read More &rarr;</a>
                   </div>
                 </div>
               </div>
@@ -51,7 +36,6 @@
                       необходимый минимум данных (расход материалов, количество часов работы).
                       Если вы работаете в небольшой компании, вы можете назначить даже самого себя в качестве
                       ответственного за предоставление данных. </p>
-                    <a class="btn btn-primary btn-pill" href="#">Read More &rarr;</a>
                   </div>
                 </div>
               </div>
@@ -67,7 +51,6 @@
                       подготовит отчет акционерам и т.д.
                       Вы также можете передать рассчитанные данные вашим проектировщикам для ускорения сроков
                       проектирования. </p>
-                    <a class="btn btn-primary btn-pill" href="#">Read More &rarr;</a>
                   </div>
                 </div>
               </div>
@@ -78,62 +61,13 @@
     </div>
     <!-- / Our Blog Section -->
 
+    <Cards />
+
     <Features />
 
     <Usability />
 
     <Services />
-
-    <Cards />
-
-    <!-- Our Services Section -->
-    <div id="our-services" class="our-services section py-4">
-      <h3 class="section-title text-center my-5">Our Services</h3>
-      <!-- Features -->
-      <div class="features py-4 mb-4">
-        <div class="container">
-          <div class="row">
-            <div class="feature py-4 col-md-6 d-flex">
-              <div class="icon text-primary mr-3"><i class="fa fa-paint-brush"></i></div>
-              <div class="px-4">
-                <h5>Design & Branding</h5>
-                <p>Quisque mollis mi ac aliquet accumsan. Sed sed dapibus libero. Nullam luctus purus duis sensibus
-                  signiferumque.</p>
-              </div>
-            </div>
-            <div class="feature py-4 col-md-6 d-flex">
-              <div class="icon text-primary mr-3"><i class="fa fa-code"></i></div>
-              <div class="px-4">
-                <h5>Programming</h5>
-                <p>Quisque mollis mi ac aliquet accumsan. Sed sed dapibus libero. Nullam luctus purus duis sensibus
-                  signiferumque.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="feature py-4 col-md-6 d-flex">
-              <div class="icon text-primary mr-3"><i class="fa fa-font"></i></div>
-              <div class="px-4">
-                <h5>Copywriting</h5>
-                <p>Quisque mollis mi ac aliquet accumsan. Sed sed dapibus libero. Nullam luctus purus duis sensibus
-                  signiferumque.</p>
-              </div>
-            </div>
-            <div class="feature py-4 col-md-6 d-flex">
-              <div class="icon text-primary mr-3"><i class="fa fa-support"></i></div>
-              <div class="px-4">
-                <h5>Training & Support</h5>
-                <p>Quisque mollis mi ac aliquet accumsan. Sed sed dapibus libero. Nullam luctus purus duis sensibus
-                  signiferumque.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- / Features -->
-    </div>
-    <!-- / Our Services Section -->
 
   </d-container>
 </template>
