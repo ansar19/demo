@@ -60,18 +60,20 @@
       </div>
     </div>
     <!-- / Our Blog Section -->
-
-    <div>
-      <d-btn v-d-toggle.my-collapse variant="primary">Посмотреть пример расчета выбросов парниковых газов</d-btn>
-      <d-collapse id="my-collapse">
-        <div class="p-3 mt-3 border rounded">
-            <GhgCalc />
-        </div>
-      </d-collapse>
-    </div>
-
-
-    
+    <d-container class="dr-example-container">
+      <d-row>
+        <d-col>
+          <div>
+            <d-btn v-d-toggle.my-collapse variant="primary">Посмотреть пример расчета выбросов парниковых газов</d-btn>
+            <d-collapse id="my-collapse">
+              <div class="p-3 mt-3 border rounded">
+                <GhgCalc />
+              </div>
+            </d-collapse>
+          </div>
+        </d-col>
+      </d-row>
+    </d-container>
 
     <Cards />
 
