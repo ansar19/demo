@@ -1,13 +1,38 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+
+
+
+        <div class="wrapper" id="app">
+          <nav-bar />
+          <router-view />
+          <Footer />
+        </div>
+
+
+
 </template>
 
+<script>
+import NavBar from '@/components/navbar/NavBar.vue'
+import Footer from '@/components/footer/Footer.vue'
+
+export default {
+  components: {
+    NavBar,
+    Footer
+  }
+}
+</script>
+
+<style lang="scss">
+
+
+.wrapper {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+</style>>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -15,6 +40,9 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  position: relative;
+    height: 100vh;
+    min-height: 700px;
 }
 
 #nav {
@@ -26,7 +54,5 @@
   color: #2c3e50;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+
 </style>
