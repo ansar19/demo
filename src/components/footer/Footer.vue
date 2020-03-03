@@ -17,10 +17,10 @@
 
 <script>
 const defaultMenuItems = [
-  {
-    title: 'Документация',
-    to: 'help',
-  },
+  // {
+  //   title: 'Документация',
+  //   to: 'help',
+  // },
   {
     title: 'Про нас',
     to: 'aboutproject',

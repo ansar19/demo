@@ -1,9 +1,12 @@
 <template>
   <section class="features" id="features-scroll">
-    <h2>Features</h2>
-    <p class="subtitle">Core Features</p>
+    <h2>Видео о нашем продукте</h2>
+    <p class="subtitle">ЭкоМарин - онлайн платформа по расчётам выбросов и подготовке отчётов</p>
+
+    <d-embed type="iframe" aspect="16by9" src="https://www.youtube.com/embed/hXL3dhTdX9k" allowfullscreen />
+
     <!-- Features -->
-    <div class="box" v-for="(feature, featureIndex) in features" :key="'feature' + featureIndex">
+    <!-- <div class="box" v-for="(feature, featureIndex) in features" :key="'feature' + featureIndex">
       <div class="box-icon">
         <img :src="feature.svg">
       </div>
@@ -11,7 +14,7 @@
         <h3>{{ feature.title }}</h3>
         <p>{{ feature.description }}</p>
       </div>
-    </div>
+    </div> -->
     <!-- Separator -->
     <div class="border-bottom"></div>
   </section>

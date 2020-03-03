@@ -6,7 +6,6 @@
     <div class="blog section section-invert py-4">
       <h3 class="section-title text-center m-5">Как в три шага автоматизировать процесс управления выбросами
         предприятия?</h3>
-
       <div class="container">
         <div class="py-4">
           <div class="row">
@@ -59,12 +58,21 @@
         </div>
       </div>
     </div>
+
+    <Features />
     <!-- / Our Blog Section -->
+    <section class="features" id="features-scroll">
+    <h2>Пример расчета</h2>
+    <p class="subtitle">Конструктор расчетов ЭкоМарин позволяет очень легко и быстро реализовывать существующие методики расчетов любого вида.</p>
+    <p class="subtitle">Вы можете создавать любые расчеты, как например: расчет выбросов загрязняющих веществ в атмосферу, расчет выбросов парниковых газов, расчет образования отходов и т.д.</p>
+
+    <p class="subtitle">Ниже вы можете ознакомится с примером расчета выбросов парниковых газов, просто заполните необходимые поля и вы сразу получите результат.</p>
+
     <d-container class="dr-example-container">
       <d-row>
         <d-col>
           <div>
-            <d-btn v-d-toggle.my-collapse variant="primary">Посмотреть пример расчета выбросов парниковых газов</d-btn>
+            <d-btn v-d-toggle.my-collapse outline variant="primary">Посмотреть пример расчета выбросов парниковых газов</d-btn>
             <d-collapse id="my-collapse">
               <div class="p-3 mt-3 border rounded">
                 <GhgCalc />
@@ -75,9 +83,9 @@
       </d-row>
     </d-container>
 
-    <Cards />
+    </section>
 
-    <Features />
+    <Cards />
 
     <Usability />
 
