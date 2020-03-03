@@ -1,5 +1,5 @@
 <template>
-  <section class="usability" id="usability-scroll" v-scroll-reveal.reset:false="{ delay: 180 }">
+  <section class="usability" id="usability-scroll">
     <!-- Video -->
     <h2>Usability</h2>
     <p class="subtitle">Easy to use</p>

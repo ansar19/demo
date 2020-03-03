@@ -61,6 +61,18 @@
     </div>
     <!-- / Our Blog Section -->
 
+    <div>
+      <d-btn v-d-toggle.my-collapse variant="primary">Посмотреть пример расчета выбросов парниковых газов</d-btn>
+      <d-collapse id="my-collapse">
+        <div class="p-3 mt-3 border rounded">
+            <GhgCalc />
+        </div>
+      </d-collapse>
+    </div>
+
+
+    
+
     <Cards />
 
     <Features />
@@ -82,6 +94,8 @@ import Services from '@/components/Services.vue'
 import Hero from '@/components/Hero.vue'
 import Cards from '@/components/Cards.vue'
 
+import GhgCalc from '@/components/GhgCalc.vue'
+
 
 export default {
   name: 'Home',
@@ -90,7 +104,8 @@ export default {
     Usability,
     Services,
     Hero,
-    Cards
+    Cards,
+    GhgCalc
     // HelloWorld
   }
 }

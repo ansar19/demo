@@ -1,15 +1,15 @@
 <template>
-    <section class="services" id="services-scroll">
-        <div class="main-content" v-scroll-reveal.reset:false="{ delay: 180 }">
+    <section class="services">
+        <div class="main-content">
             <h2>Services</h2>
             <p class="subtitle">Meeting your needs</p>
         </div>
 
-        <div class="services-image" v-scroll-reveal.reset:false="{ delay: 180 }">
+        <div class="services-image">
         <img src="images/phone2.png" alt="Image of two white mobile phones stack above each other showing different parts of the app.">
         </div>
 
-        <div :class="'services-box services-box-' + serviceIndex" v-for="(service, serviceIndex) in services" :key="'service' + serviceIndex" v-scroll-reveal.reset:false="{ delay: 180 }">
+        <div :class="'services-box services-box-' + serviceIndex" v-for="(service, serviceIndex) in services" :key="'service' + serviceIndex">
             <div class="container">
                 <div class="services-box-icon">
                     <img :src="service.svg">
