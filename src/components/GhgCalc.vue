@@ -36,7 +36,7 @@
                     <label class="form-label">Тип автотранспорта:</label>
                     <d-form-select v-model="vehicletype" :options="vehicletypeoptions" />
                 </div>
-                <div id="exportContent">
+                <div id="exportContent" ref="printMe" >
                     <template v-if="vehicletype">
                         <div class="mb-2">
                             <label>Выбранные параметры:</label>
@@ -94,6 +94,10 @@
                             <d-button outline size="sm" @click.prevent="export2Doc('exportContent');">
                                 Сохранить как .doc
                             </d-button>
+
+                            <d-button outline size="sm" @click.prevent="print">
+                                Распечатать результат
+                            </d-button>
                         </div>
                     </template>
 
@@ -109,7 +113,7 @@
 
 <script>
 /* eslint-disable */
-
+import { Printd } from 'printd'
 export default {
   name: 'ghg-calc',
   data() {
@@ -227,7 +231,49 @@ export default {
       input: {
         fuelUsed: 0,
       },
+      cssText: `
+      .printing {
+        font-family: sans-serif;
+        width: 500px;
+        border: solid 1px #ccc;
+        text-align: center;
+        padding: 1em;
+        margin: 2em auto;
+      }
+
+      button {
+        background-color: #f0f0f0;
+        border: solid 1px #bbb;
+        padding: 10px;
+        font-size: 15px;
+        border-radius: 5px;
+      }
+
+      pre {
+        color: #c7254e;
+      }
+    `
     }
+  },
+  mounted() {
+
+
+    const {
+      Printd
+    } = window.printd
+
+    this.d = new Printd()
+
+    const {
+      contentWindow
+    } = this.d.getIFrame()
+
+    contentWindow.addEventListener(
+      'beforeprint', () => console.log('before print event!')
+    )
+    contentWindow.addEventListener(
+      'afterprint', () => console.log('after print event!')
+    )
   },
   watch: {
     boxes(value) {
@@ -243,6 +289,44 @@ export default {
         this.selectedch4n2o = this.optionsch4n2o[3];
         this.vehicletype = 43.97;
       }
+    },
+    print() {
+    const cssText = `
+    .printing {
+      font-family: sans-serif;
+      width: 500px;
+      border: solid 1px #ccc;
+      text-align: center;
+      padding: 1em;
+      margin: 2em auto;
+    }
+
+    button {
+      background-color: #f0f0f0;
+      border: solid 1px #bbb;
+      padding: 10px;
+      font-size: 15px;
+      border-radius: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+
+    h1 {
+      color: black;
+      font-family: sans-serif;
+    }
+    `
+    const d = new Printd()
+    d.print( document.getElementById('exportContent'), [ cssText ] )
     },
     export2Doc (element, filename = '') {
       var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>"
@@ -299,3 +383,14 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.orientation {
+  width: 400px /* normal width */
+}
+@media print {
+  .orientation {
+    width: 100% /* print width */
+  }
+}
+</style>
