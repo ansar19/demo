@@ -1,5 +1,5 @@
 <template>
-  <d-container fluid class="main-content-container px-4">
+  <d-container fluid class="blog section section-invert py-4">
       <h3 class="section-title text-center my-5">Узнайте о преимуществах системы "ЭкоМарин"</h3>
     <!-- Fourth Row of Posts -->
     <d-row>
@@ -7,12 +7,13 @@
         <d-card class="card-small card-post h-10">
           <d-card-body>
             <h5 class="card-title">
+              <i class="material-icons">{{post.icon}}</i><br>
               <a class="text-fiord-blue" href="#">{{ post.title }}</a>
             </h5>
             <p class="card-text">{{ post.body }}</p>
           </d-card-body>
           <!-- <d-card-footer class="text-muted border-top py-3">
-            <span class="d-inline-block">By <a class="text-fiord-blue" :href="post.authorUrl">{{ post.author }}</a> in <a class="text-fiord-blue" :href="post.categoryUrl">{{ post.category }}</a></span>
+            <span class="d-inline-block">By <a class="text-fiord-blue" :href="post.icon">{{ post.author }}</a> in <a class="text-fiord-blue" :href="post.categoryUrl">{{ post.category }}</a></span>
           </d-card-footer> -->
         </d-card>
       </d-col>
@@ -22,8 +23,8 @@
 
 <script>
 const PostsListFour = [{
-  author: 'Alene Trenton',
-  authorUrl: '#',
+  author: 'eco',
+  icon: 'eco',
   category: 'News',
   categoryUrl: '#',
   title: 'Быстрая инвентаризация', 
@@ -31,7 +32,7 @@ const PostsListFour = [{
   date: '29 February 2019',
 }, {
   author: 'Chris Jamie',
-  authorUrl: '#',
+  icon: 'functions',
   category: 'News',
   categoryUrl: '#',
   title: 'Моментальный расчет выбросов',
@@ -39,7 +40,7 @@ const PostsListFour = [{
   date: '29 February 2019',
 }, {
   author: 'Monica Jordan',
-  authorUrl: '#',
+  icon: 'school',
   category: 'News',
   categoryUrl: '#',
   title: 'Полное соотвествие законодательству',
@@ -47,7 +48,7 @@ const PostsListFour = [{
   date: '29 February 2019',
 }, {
   author: 'Monica Jordan',
-  authorUrl: '#',
+  icon: 'check',
   category: 'News',
   categoryUrl: '#',
   title: 'Оптимизация',
@@ -56,7 +57,7 @@ const PostsListFour = [{
 },
 {
   author: 'Monica Jordan',
-  authorUrl: '#',
+  icon: 'print',
   category: 'News',
   categoryUrl: '#',
   title: 'Автоматические отчеты',
@@ -65,7 +66,7 @@ const PostsListFour = [{
 },
 {
   author: 'Monica Jordan',
-  authorUrl: '#',
+  icon: 'favorite_border',
   category: 'News',
   categoryUrl: '#',
   title: 'Легко освоить',
@@ -74,7 +75,7 @@ const PostsListFour = [{
 },
 {
   author: 'Monica Jordan',
-  authorUrl: '#',
+  icon: 'timeline',
   category: 'News',
   categoryUrl: '#',
   title: 'Точное планирование',
@@ -83,7 +84,7 @@ const PostsListFour = [{
 },
 {
   author: 'Monica Jordan',
-  authorUrl: '#',
+  icon: 'access_time',
   category: 'News',
   categoryUrl: '#',
   title: 'Доступность 24/7',
@@ -92,7 +93,7 @@ const PostsListFour = [{
 },
 {
   author: 'Monica Jordan',
-  authorUrl: '#',
+  icon: 'pie_chart',
   category: 'News',
   categoryUrl: '#',
   title: 'Аналитика',
@@ -101,7 +102,7 @@ const PostsListFour = [{
 },
 {
   author: 'Monica Jordan',
-  authorUrl: '#',
+  icon: 'mobile_screen_share',
   category: 'News',
   categoryUrl: '#',
   title: 'Минимум оборудования',
@@ -110,7 +111,7 @@ const PostsListFour = [{
 },
 {
   author: 'Monica Jordan',
-  authorUrl: '#',
+  icon: 'mail_outline',
   category: 'News',
   categoryUrl: '#',
   title: 'Назначение и отслеживание задач',
@@ -119,7 +120,7 @@ const PostsListFour = [{
 },
 {
   author: 'Monica Jordan',
-  authorUrl: '#',
+  icon: 'security',
   category: 'News',
   categoryUrl: '#',
   title: 'Безопасно',

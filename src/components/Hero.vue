@@ -1,7 +1,8 @@
 <template>
     <div class="bg-wrap">
         <h1>Платформа<br>ЭкоМарин<br><br>
-            <small class="text-white">Автоматизация расчетов выбросов загрязняющих веществ любых производств.</small>
+            <small class="text-white">Автоматизация расчетов выбросов </small>
+            <small class="text-white">загрязняющих веществ любых производств.</small>
         </h1>
 
         <div class="gooey-rec one"></div>
