@@ -1,5 +1,5 @@
 <template>
-    <d-container fluid class="main-content-container px-4">
+    <d-container fluid class="main-content-container ml-2 mr-2 section1">
 
         <!-- Second Row of Posts -->
         <!-- <d-row>
@@ -124,13 +124,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.section1 {
+    padding: 100px 0 130px 0;
+    background: #efefef;
+
+}
+
 .services {
     padding: 40px 0;
     text-align: center;
     color: var(--white);
     background: -webkit-linear-gradient(left, var(--primary-dark), var(--primary));
-    background: linear-gradient(to right, var(--primary-dark), var(--primary));                             
-    
+    background: linear-gradient(to right, var(--primary-dark), var(--primary));
+
     @media only screen and (min-width: 768px) {
         display: -ms-grid;
         display: grid;
@@ -151,7 +158,7 @@ export default {
         -ms-grid-row-span: 2;
         -ms-grid-row: 1;
         grid-row: 1 / span 2;
-        
+
         @media only screen and (min-width: 820px) {
             -ms-grid-column-span: 8;
             -ms-grid-column: 2;
@@ -248,7 +255,7 @@ export default {
         border-radius: 50px;
         background: -webkit-linear-gradient(55deg, var(--primary) 0%, var(--green));
 
-    
+
         img {
             height: 45px;
             margin: 0;

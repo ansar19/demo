@@ -1,5 +1,5 @@
 <template>
-  <section class="usability" id="usability-scroll">
+  <section class="usability bg-white" id="usability-scroll">
     <!-- Video -->
     <h2>Факты</h2>
     <!-- <p class="subtitle">Немного фактов про нас</p> -->
@@ -56,8 +56,13 @@ export default {
 
 <style lang="scss" scoped>
 .usability {
-    margin: 40px;
-    text-align: center;
+    // margin: 40px;
+    padding: 100px 0 130px 0;
+    // text-align: center;
+
+    .white-bg {
+    background: #fff;
+}
 
     &-video {
         position: relative;
@@ -160,63 +165,4 @@ export default {
 
 }
 
-// Play Button
-  .stroke-dotted {
-    opacity: 0;
-    stroke-dasharray: 4,5;
-    stroke-width: 1px;
-    -webkit-transform-origin: 50% 50%;
-    -ms-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-    -webkit-animation: spin 4s infinite linear;
-    animation: spin 4s infinite linear;
-    -webkit-transition: opacity 1s ease, 
-    stroke-width 1s ease;
-    -o-transition: opacity 1s ease, 
-    stroke-width 1s ease;
-    transition: opacity 1s ease, 
-    stroke-width 1s ease;
-  }
-  .stroke-solid {
-    stroke-dashoffset: 0;
-    stroke-dashArray: 300;
-    stroke-width: 4px;
-    -webkit-transition: stroke-dashoffset 1s ease, 
-    opacity 1s ease;
-    -o-transition: stroke-dashoffset 1s ease, 
-    opacity 1s ease;
-    transition: stroke-dashoffset 1s ease, 
-    opacity 1s ease;
-  }
-  
-  .icon {
-    -webkit-transform-origin: 50% 50%;
-    -ms-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-    -webkit-transition: -webkit-transform 200ms ease-out;
-    transition: -webkit-transform 200ms ease-out;
-    -o-transition: transform 200ms ease-out;
-    transition: transform 200ms ease-out;
-    transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
-  }
-  
-
-  #play:hover {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-    .stroke-dotted {
-        stroke-width: 4px;
-        opacity: 1;
-        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-    }
-    .stroke-solid {
-        opacity: 0;
-        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-        stroke-dashoffset: 300;
-    }
-    .icon {
-        -webkit-transform: scale(1.05);
-        transform: scale(1.05);
-    }
-}
 </style>
