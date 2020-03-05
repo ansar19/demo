@@ -1,8 +1,9 @@
 <template>
     <div class="bg-wrap">
-        <h1>Платформа<br>ЭкоМарин<br><br>
-            <small class="text-white">Автоматизация расчетов выбросов </small>
-            <small class="text-white">загрязняющих веществ любых производств.</small>
+        <h1>{{ $t('home.hero1') }}<br>
+        {{ $t('home.hero2') }}<br><br>
+            <small class="text-white">{{ $t('home.hero_subtitle') }}</small>
+            <small class="text-white">{{ $t('home.hero_subtitle2') }}</small>
         </h1>
 
         <div class="gooey-rec one"></div>

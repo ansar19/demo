@@ -4,8 +4,7 @@
     <Hero />
     <!-- Our Blog Section -->
     <div class="blog section section-invert py-4">
-      <h3 class="section-title text-center m-5">Как в три шага автоматизировать процесс управления выбросами
-        предприятия?</h3>
+      <h3 class="section-title text-center m-5">{{ $t('home.steps_title') }}</h3>
 
       <div class="my-5">
         <div class="row mb-4 ml-4 mr-4">
@@ -14,11 +13,10 @@
               <div class="card">
                 <img class="card-img-top" src="@/assets/inventory.jpg" alt="Быстрая инвентаризация">
                 <div class="card-body">
-                  <h4 class="card-title">Проведите инвентаризацию</h4>
-                  <p class="card-text">Зарегистрируйтесь в системе "ЭкоМарин" и проведите инвентаризацию источников
-                    выбросов находясь рядом с оборудованием или получив данные из проектной документации.
-                    Укажите методику расчета выбросов на каждый источник будь то оборудование или процесс и иные
-                    характеристики по желанию. </p>
+                  <h4 class="card-title">{{ $t('home.card1_title') }}
+                  </h4>
+                  <p class="card-text">
+                    {{ $t('home.card1_text') }}</p>
                 </div>
               </div>
             </d-col>
@@ -27,13 +25,12 @@
               <div class="card">
                 <img class="card-img-top" src="@/assets/responsible.jpg" alt="Система напоминаний">
                 <div class="card-body">
-                  <h4 class="card-title">Назначьте ответственных лиц</h4>
-                  <p class="card-text">Назначьте ответственных лиц за предоставление периодических данных и укажите
-                    периодичность (ежемесячно или ежеквартально).
-                    Ответственный сотрудник получит уведомление на электронную почту и будет заполнять только
-                    необходимый минимум данных (расход материалов, количество часов работы).
-                    Если вы работаете в небольшой компании, вы можете назначить даже самого себя в качестве
-                    ответственного за предоставление данных. </p>
+                  <h4 class="card-title">
+                    {{ $t('home.card2_title') }}
+                    </h4>
+                  <p class="card-text">
+                    {{ $t('home.card2_text') }}
+                   </p>
                 </div>
               </div>
             </d-col>
@@ -42,12 +39,8 @@
               <div class="card">
                 <img class="card-img-top" src="@/assets/reports.jpg" alt="Автоматические отчеты">
                 <div class="card-body">
-                  <h4 class="card-title">Получайте автоматические отчеты</h4>
-                  <p class="card-text">Как только ответственные лица заполнят периодические данные – “ЭкоМарин”
-                    автоматический рассчитает и сформирует отчеты в налоговый комитет, департамент статистики,
-                    подготовит отчет акционерам и т.д.
-                    Вы также можете передать рассчитанные данные вашим проектировщикам для ускорения сроков
-                    проектирования. </p>
+                  <h4 class="card-title">{{ $t('home.card3_title') }}</h4>
+                  <p class="card-text">{{ $t('home.card3_text') }} </p>
                 </div>
               </div>
             </d-col>
@@ -60,21 +53,22 @@
     <Features />
     <!-- / Our Blog Section -->
     <section class="features white-bg" id="features-scroll">
-      <h2>Пример расчета</h2>
-      <p class="subtitle">Конструктор расчетов ЭкоМарин позволяет очень легко и быстро реализовывать существующие
-        методики расчетов любого вида.</p>
-      <p class="subtitle">Вы можете создавать любые расчеты, как например: расчет выбросов загрязняющих веществ в
-        атмосферу, расчет выбросов парниковых газов, расчет образования отходов и т.д.</p>
+      <h2>{{ $t('home.calc_example_title') }}</h2>
+      <p class="subtitle">{{ $t('home.calc_example_text1') }}</p>
+      <p class="subtitle">
+        {{ $t('home.calc_example_text2') }}</p>
 
-      <p class="subtitle">Ниже вы можете ознакомится с примером расчета выбросов парниковых газов, просто заполните
-        необходимые поля и вы сразу получите результат.</p>
+      <p class="subtitle">
+        {{ $t('home.calc_example_text3') }}
+
+      </p>
 
       <d-container class="dr-example-container">
         <d-row>
           <d-col>
             <div>
-              <d-btn v-d-toggle.my-collapse outline variant="primary">Посмотреть пример расчета выбросов парниковых
-                газов</d-btn>
+              <d-btn v-d-toggle.my-collapse outline variant="primary">{{ $t('home.buttons.calc_example_btn') }}
+                </d-btn>
               <d-collapse id="my-collapse">
                 <div class="p-3 mt-3 border rounded">
                   <GhgCalc />
