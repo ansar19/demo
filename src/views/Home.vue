@@ -45,7 +45,7 @@
     <Features />
     <!-- / Our Blog Section -->
     <section class="features white-bg" id="features-scroll">
-      <div class="section">
+      <div class="section m-5">
         <h2 class="text-center">{{ $t('home.calc_example_title') }}</h2>
         <p class="subtitle text-center">{{ $t('home.calc_example_text1') }}</p>
         <p class="subtitle text-center">{{ $t('home.calc_example_text2') }}</p>
