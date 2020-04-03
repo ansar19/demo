@@ -1,26 +1,18 @@
 <template>
-  <d-container fluid class="main-content-container px-0 mt-0">
+  <d-container fluid class="main-content-container px-0 mt-0 mx-0 my-0">
     <d-row>
       <d-col>
         <div class="header">
-          <!-- <div class="sides">
-            <a href="#" class="logo">BLOG</a>
-          </div>
-          <div class="sides"> <a href="#" class="menu"> </a></div> -->
           <div class="info">
-            <!-- <h4><a href="#category">UI DESIGN</a></h4> -->
             <h1 class="text-white">Смена правил</h1>
             <h5 class="text-white">Расчеты выбросов больше не должны создавать проблем</h5>
-            <!-- <div class="meta">
-              <a href="https://twitter.com/nodws" target="_b" class="author"></a><br>
-              By <a href="https://twitter.com/nodws" target="_b">James Nodws</a> on May 30, 2019
-            </div> -->
           </div>
         </div>
         <section class="content">
-         
-         <blockquote>Почему мы создаем платформу "ЭкоМарин"? Что это такое? Для кого она предназначена? Какие проблемы решает?
-            На эти и другие вопросы мы постарались ответить ниже.</blockquote>
+          <blockquote>
+            Почему мы создаем платформу "ЭкоМарин"? Что это такое? Для кого она предназначена? Какие проблемы решает?
+            На эти и другие вопросы мы постарались ответить ниже.
+          </blockquote>
 
           <p>
             За годы работы в области охраны окружающей среды на производстве, а также в области инжиниринга и
@@ -40,7 +32,6 @@
             Мы старались найти инструменты удобные для нас, которые бы автоматизировали бы наши рутинные задачи,
             напоминали нам о сроках, были доступны из дома или когда мы находимся в командировке или на обучении.
           </p>
-
 
           <p>
             Но все инструменты, что мы видели или использовали - не подходили, не предназначалось или откровенно
@@ -68,9 +59,7 @@
             необходимые отчеты для государственных органов и напоминать ответственным о необходимости предоставления
             исходных данных. Поэтому мы разработали всю систему вокруг работы эколога на производстве.
           </p>
-          <p>
-
-          </p>
+          <p></p>
           <p>
             Вот некоторые из наших основных правил: использовать повторно данные которые уже были внесены (данные при
             регистрации -> данные для отчетов), давать возможность скачивания генерированных расчетов и отчетов,
@@ -87,21 +76,12 @@
           <p>
             В обмен на ваше доверие мы обещаем оставаться человечными, честными и, конечно же, держать вас в курсе
             развития проекта.
-
           </p>
 
-          <p>
-            С уважением,
+          <p>С уважением,</p>
 
-          </p>
+          <p>Команда "ЭкоМарин"</p>
 
-          <p>
-            Команда "ЭкоМарин"
-          </p>
-
-
-          <!-- <p align="center"><a href="https://twitter.com/nodws" class="btn twtr" target="_b">Follow me on Twitter</a>
-          </p> -->
         </section>
       </d-col>
     </d-row>
@@ -109,16 +89,14 @@
 </template>
 
 <style scoped>
-
-
 html,
 body {
   margin: 0;
-  height: 120%;
+  /* height: 120%; */
 }
 
 a {
-  text-decoration: none
+  text-decoration: none;
 }
 
 .header {
@@ -144,7 +122,11 @@ a {
   bottom: 0;
   left: 0;
   z-index: -1;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.12) 40%, rgba(27, 32, 48, 1) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.12) 40%,
+    rgba(27, 32, 48, 1) 100%
+  );
 }
 
 .header:before {
@@ -157,18 +139,18 @@ a {
   -webkit-backface-visibility: hidden;
   -webkit-transform: translateZ(0);
   backface-visibility: hidden;
-  scale: (1.0, 1.0);
+  scale: (1, 1);
   transform: translateZ(0);
-  background: #1B2030 url(../assets/mountain.jpeg) 50% 0 no-repeat;
+  background: #1b2030 url(../assets/mountain.jpeg) 50% 0 no-repeat;
   background-size: 100%;
   background-attachment: fixed;
   animation: grow 360s linear 10ms infinite;
   transition: all 0.4s ease-in-out;
-  z-index: -2
+  z-index: -2;
 }
 
 .header a {
-  color: #eee
+  color: #eee;
 }
 
 .menu {
@@ -180,7 +162,7 @@ a {
   position: absolute;
   right: 20px;
   top: 20px;
-  text-decoration: none
+  text-decoration: none;
 }
 
 .menu:after {
@@ -194,7 +176,7 @@ a {
   top: 5px;
   left: 0;
   right: 0;
-  box-shadow: 0 8px, 0 16px
+  box-shadow: 0 8px, 0 16px;
 }
 
 .logo {
@@ -210,36 +192,25 @@ a {
   font-size: 1.1em;
   line-height: 1;
   box-sizing: border-box;
-  height: 40px
+  height: 40px;
 }
 
 .sides,
 .info {
   flex: 0 0 auto;
-  width: 50%
+  width: 50%;
 }
 
 .info {
   width: 100%;
   padding: 15% 10% 0 10%;
   text-align: center;
-  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2)
-}
-
-.author {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: url(https://i.imgur.com/6DLCsZcb.jpg) center no-repeat;
-  background-size: cover;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
-  margin-bottom: 3px
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 
 .info h4,
 .meta {
-  font-size: 0.7em
+  font-size: 0.7em;
 }
 
 .meta {
@@ -248,17 +219,17 @@ a {
 
 @keyframes grow {
   0% {
-    transform: scale(1) translateY(0px)
+    transform: scale(1) translateY(0px);
   }
 
   50% {
-    transform: scale(1.2) translateY(-400px)
+    transform: scale(1.2) translateY(-400px);
   }
 }
 
 .content {
   padding: 5% 10%;
-  text-align: justify
+  text-align: justify;
 }
 
 .btn {
@@ -268,34 +239,32 @@ a {
   text-decoration: none;
   display: inline-block;
   padding: 5px 10px;
-  font-weight: 600
+  font-weight: 600;
 }
 
 .twtr {
-  margin-top: 100px
+  margin-top: 100px;
 }
 
 .btn.twtr:after {
   content: "\1F426";
-  padding-left: 5px
+  padding-left: 5px;
 }
-
 
 blockquote {
   border: 1px solid #e6e9ec;
-    padding: 12px 20px;
-    border-radius: 5px;
-    box-shadow: 0 3px 8px 0 rgba(0,0,0,.03);
-    background-color: #fff;
-    border-left: 3px solid #2d53fe;
-    font-size: 18px;
-    line-height: 1.5;
-      margin: 0 0 1rem;
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 40px;
-    margin-inline-end: 40px;
+  padding: 12px 20px;
+  border-radius: 5px;
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.03);
+  background-color: #fff;
+  border-left: 3px solid #2d53fe;
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 0 0 1rem;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 40px;
+  margin-inline-end: 40px;
 }
-
 </style>

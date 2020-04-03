@@ -4,12 +4,13 @@
       <div class="row">
         <ul class="nav">
           <li v-for="(item, idx) in menuItems" :key="idx" class="nav-item">
-            <d-link class="nav-link" :to="item.to">
-              {{ item.title }}
-            </d-link>
+            <d-link class="nav-link" :to="item.to">{{ item.title }}</d-link>
           </li>
         </ul>
-        <span class="copyright ml-auto my-auto mr-2">{{ copyright }} <a href="https://ecomarine.kz" target="_blank">EcoMarine.kz</a></span>
+        <span class="copyright ml-auto my-auto mr-2">
+          {{ copyright }}
+          <a href="https://ecomarine.kz" target="_blank">EcoMarine.kz</a>
+        </span>
       </div>
     </div>
   </footer>
@@ -22,41 +23,40 @@ const defaultMenuItems = [
   //   to: 'help',
   // },
   {
-    title: 'Про нас',
-    to: 'aboutproject',
-  },
-]
+    title: "Про нас",
+    to: "aboutproject"
+  }
+];
 
 export default {
-  name: 'MainFooter',
+  name: "MainFooter",
   props: {
     /**
      * The footer menu items.
      */
     menuItems: {
       type: Array,
-      default () {
-        return defaultMenuItems
-      },
+      default() {
+        return defaultMenuItems;
+      }
     },
     /**
      * The copyright information.
      */
     copyright: {
       type: String,
-      default: 'Copyright © 2018-2020',
+      default: "Copyright © 2018-2020"
     },
     /**
      * Whether the footer should be wrapped in a container, or not.
      */
     contained: {
       type: Boolean,
-      default: false,
-    },
-  },
-}
+      default: false
+    }
+  }
+};
 </script>
 
 <style scoped>
-
 </style>

@@ -1,18 +1,16 @@
 <template>
     <div class="bg-wrap">
-        <h1>{{ $t('home.hero1') }}<br>
+        <h1 class="text-center">{{ $t('home.hero1') }}<br>
         {{ $t('home.hero2') }}<br><br>
             <small class="text-white">{{ $t('home.hero_subtitle') }}</small>
             <small class="text-white">{{ $t('home.hero_subtitle2') }}</small>
         </h1>
-
         <div class="gooey-rec one"></div>
         <div class="gooey-rec"></div>
     </div>
 </template>
 
 <style scoped>
-/* @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,900'); */
 
 body {
     margin: 0;

@@ -20,16 +20,19 @@
         </div>
         <div class="form-group">
           <label class="form-label">Удельный Коэффициент выбросов СО2:</label>
-          <d-form-select v-model="emissionfactorco2" :options="emissionfactorco2options"
-            @input="emissionFactorco2Select" />
+          <d-form-select
+            v-model="emissionfactorco2"
+            :options="emissionfactorco2options"
+            @input="emissionFactorco2Select"
+          />
         </div>
         <div class="form-group">
-          <label class="form-label">Коэффициенты выбросов N2O и CH4 по умолчанию для дорожного
-            транспорта:</label>
+          <label class="form-label">
+            Коэффициенты выбросов N2O и CH4 по умолчанию для дорожного
+            транспорта:
+          </label>
           <v-select v-model="selectedch4n2o" :options="optionsch4n2o" label="title">
-            <template slot="option" slot-scope="option">
-              {{ option.title }}
-            </template>
+            <template slot="option" slot-scope="option">{{ option.title }}</template>
           </v-select>
         </div>
         <div class="form-group">
@@ -47,10 +50,8 @@
                     <th>Техническое состояния автомобиля (П)</th>
                     <th>Годы эксплуатации (R)</th>
                     <th>Удельный Коэффициент выбросов СО2 т/ТДж</th>
-                    <th>Выбранный коэффициент выбросов N2O по умолчанию для дорожного транспорта
-                    </th>
-                    <th>Выбранный коэффициент выбросов CH4 по умолчанию для дорожного транспорта
-                    </th>
+                    <th>Выбранный коэффициент выбросов N2O по умолчанию для дорожного транспорта</th>
+                    <th>Выбранный коэффициент выбросов CH4 по умолчанию для дорожного транспорта</th>
                     <th>Переводные множители для расчета выбросов СО2</th>
                   </tr>
                 </thead>
@@ -58,14 +59,14 @@
                   <td data-label="Объем потребления топлива, тыс.тонн:">{{ fuelUsedThousand }}</td>
                   <td data-label="Техническое состояния автомобиля (П):">{{ yearsused }}</td>
                   <td data-label="Годы эксплуатации (R):">{{ yearsused }}</td>
-                  <td data-label="Удельный Коэффициент выбросов СО2 т/ТДж:">{{ emissionfactorco2 }}
-                  </td>
-                  <td data-label="Выбранный коэффициент выбросов N2O по умолчанию для дорожного транспорта:">
-                    {{ selectedch4n2o.n2odefault }}</td>
-                  <td data-label="Выбранный коэффициент выбросов CH4 по умолчанию для дорожного транспорта:">
-                    {{ selectedch4n2o.ch4default }}</td>
-                  <td data-label="Переводные множители для расчета выбросов СО2:">{{ vehicletype }}
-                  </td>
+                  <td data-label="Удельный Коэффициент выбросов СО2 т/ТДж:">{{ emissionfactorco2 }}</td>
+                  <td
+                    data-label="Выбранный коэффициент выбросов N2O по умолчанию для дорожного транспорта:"
+                  >{{ selectedch4n2o.n2odefault }}</td>
+                  <td
+                    data-label="Выбранный коэффициент выбросов CH4 по умолчанию для дорожного транспорта:"
+                  >{{ selectedch4n2o.ch4default }}</td>
+                  <td data-label="Переводные множители для расчета выбросов СО2:">{{ vehicletype }}</td>
                 </tr>
               </table>
             </div>
@@ -75,9 +76,9 @@
                 <thead>
                   <tr>
                     <th>Объем выбросов CO2 (оксид углерода), тонн</th>
-                    <th>Объем выбросов N2O (закись азота), тонн </th>
+                    <th>Объем выбросов N2O (закись азота), тонн</th>
                     <th>Объем выбросов CH4 (метан), тонн</th>
-                    <th>Объем выбросов ПГ в CO2 эквив., тонн </th>
+                    <th>Объем выбросов ПГ в CO2 эквив., тонн</th>
                   </tr>
                 </thead>
                 <tr>
@@ -90,14 +91,18 @@
             </div>
 
             <div class="d-flex">
-              <d-button outline size="sm" @click.prevent="export2Doc('exportContent');">
-                Сохранить как .doc
-              </d-button>
+              <d-button
+                outline
+                size="sm"
+                @click.prevent="export2Doc('exportContent');"
+              >Сохранить как .doc</d-button>
 
-              <d-button outline class="ml-auto" size="sm" @click.prevent="print">
-                Распечатать результат
-              </d-button>
-              
+              <d-button
+                outline
+                class="ml-auto"
+                size="sm"
+                @click.prevent="print"
+              >Распечатать результат</d-button>
             </div>
           </template>
 
@@ -113,123 +118,130 @@
 
 <script>
 /* eslint-disable */
-import { Printd } from 'printd'
+import { Printd } from "printd";
 export default {
-  name: 'ghg-calc',
+  name: "ghg-calc",
   data() {
     return {
       releaseSources: [],
       selectedReleaseSource: {},
-      ghgcalcmethodtitle: 'МЕТОДИЧЕСКИЕ УКАЗАНИЯ ПО РАСЧЕТУ ВЫБРОСОВ ПАРНИКОВЫХ ГАЗОВ ОТ ПРЕДПРИЯТИЙ АВТОТРАНСПОРТА',
+      ghgcalcmethodtitle:
+        "МЕТОДИЧЕСКИЕ УКАЗАНИЯ ПО РАСЧЕТУ ВЫБРОСОВ ПАРНИКОВЫХ ГАЗОВ ОТ ПРЕДПРИЯТИЙ АВТОТРАНСПОРТА",
       selectedch4n2o: {},
-      optionsch4n2o: [{
-          title: 'Автомобильный бензин - неконтролируемые',
+      optionsch4n2o: [
+        {
+          title: "Автомобильный бензин - неконтролируемые",
           ch4default: 33,
-          n2odefault: 3.2,
+          n2odefault: 3.2
         },
         {
-          title: 'Автомобильный бензин – катализатор окисления',
+          title: "Автомобильный бензин – катализатор окисления",
           ch4default: 25,
-          n2odefault: 8,
+          n2odefault: 8
         },
         {
-          title: 'Грузовой транспорт с малым пробегом, производства 1995 года или позже',
+          title:
+            "Грузовой транспорт с малым пробегом, производства 1995 года или позже",
           ch4default: 3.8,
-          n2odefault: 5.7,
+          n2odefault: 5.7
         },
         {
-          title: 'Бензин / Дизтопливо',
+          title: "Бензин / Дизтопливо",
           ch4default: 3.9,
-          n2odefault: 3.9,
+          n2odefault: 3.9
         },
         {
-          title: 'Природный газ',
+          title: "Природный газ",
           ch4default: 92,
-          n2odefault: 3,
+          n2odefault: 3
         }
       ],
       vehiclecondition: null,
-      vehicleconditionoptions: [{
+      vehicleconditionoptions: [
+        {
           value: null,
-          text: 'Пожалуйста, выберите вариант'
+          text: "Пожалуйста, выберите вариант"
         },
         {
           value: 1.0,
-          text: 'Отличное'
+          text: "Отличное"
         },
         {
           value: 1.05,
-          text: 'Хорошее'
+          text: "Хорошее"
         },
         {
           value: 1.1,
-          text: 'Удовлетворительное'
-        },
+          text: "Удовлетворительное"
+        }
       ],
       yearsused: null,
-      yearsusedoptions: [{
+      yearsusedoptions: [
+        {
           value: null,
-          text: 'Пожалуйста, выберите вариант'
+          text: "Пожалуйста, выберите вариант"
         },
         {
           value: 1,
-          text: '0'
+          text: "0"
         },
         {
           value: 1.05,
-          text: 'до 5 лет'
+          text: "до 5 лет"
         },
         {
           value: 1.1,
-          text: 'до 10 лет'
+          text: "до 10 лет"
         },
         {
           value: 1.15,
-          text: 'до 15 лет'
+          text: "до 15 лет"
         },
         {
           value: 1.2,
-          text: 'до 20 лет'
-        },
+          text: "до 20 лет"
+        }
       ],
       vehicletype: null,
-      vehicletypeoptions: [{
+      vehicletypeoptions: [
+        {
           value: null,
-          text: 'Пожалуйста, выберите вариант'
+          text: "Пожалуйста, выберите вариант"
         },
         {
           value: 42.5,
-          text: 'Транспорт на дизельном топливе'
+          text: "Транспорт на дизельном топливе"
         },
         {
           value: 43.97,
-          text: 'Транспорт на бензине'
+          text: "Транспорт на бензине"
         },
         {
           value: 40.19,
-          text: 'масла отработанные'
+          text: "масла отработанные"
         },
         {
           value: 47.31,
-          text: 'пропан и бутан сжиженные'
-        },
+          text: "пропан и бутан сжиженные"
+        }
       ],
       emissionfactorco2: null,
-      emissionfactorco2options: [{
+      emissionfactorco2options: [
+        {
           value: null,
-          text: 'Пожалуйста, выберите вариант'
+          text: "Пожалуйста, выберите вариант"
         },
         {
           value: 74.1,
-          text: 'Дизельный автотранспорт'
+          text: "Дизельный автотранспорт"
         },
         {
-          value: 69.30,
-          text: 'Автотранспорт на бензине'
-        },
+          value: 69.3,
+          text: "Автотранспорт на бензине"
+        }
       ],
       input: {
-        fuelUsed: 0,
+        fuelUsed: 0
       },
       cssText: `
       .printing {
@@ -253,45 +265,39 @@ export default {
         color: #c7254e;
       }
     `
-    }
+    };
   },
   mounted() {
+    const { Printd } = window.printd;
 
+    this.d = new Printd();
 
-    const {
-      Printd
-    } = window.printd
+    const { contentWindow } = this.d.getIFrame();
 
-    this.d = new Printd()
-
-    const {
-      contentWindow
-    } = this.d.getIFrame()
-
-    contentWindow.addEventListener(
-      'beforeprint', () => console.log('before print event!')
-    )
-    contentWindow.addEventListener(
-      'afterprint', () => console.log('after print event!')
-    )
+    contentWindow.addEventListener("beforeprint", () =>
+      console.log("before print event!")
+    );
+    contentWindow.addEventListener("afterprint", () =>
+      console.log("after print event!")
+    );
   },
   watch: {
     boxes(value) {
-      this.$emit('boxes-changed', value);
+      this.$emit("boxes-changed", value);
     }
   },
   methods: {
     emissionFactorco2Select(pld) {
-      if(pld === 74.1) {
+      if (pld === 74.1) {
         this.selectedch4n2o = this.optionsch4n2o[3];
         this.vehicletype = 42.5;
-      } else if (pld === 69.30) {
+      } else if (pld === 69.3) {
         this.selectedch4n2o = this.optionsch4n2o[3];
         this.vehicletype = 43.97;
       }
     },
     print() {
-    const cssText = `
+      const cssText = `
     .printing {
       font-family: sans-serif;
       width: 500px;
@@ -324,73 +330,99 @@ export default {
       color: black;
       font-family: sans-serif;
     }
-    `
-    const d = new Printd()
-    d.print( document.getElementById('exportContent'), [ cssText ] )
+    `;
+      const d = new Printd();
+      d.print(document.getElementById("exportContent"), [cssText]);
     },
-    export2Doc (element, filename = '') {
-      var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>"
-      var postHtml = '</body></html>'
-      var html = preHtml + document.getElementById(element).innerHTML + postHtml
+    export2Doc(element, filename = "") {
+      var preHtml =
+        "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+      var postHtml = "</body></html>";
+      var html =
+        preHtml + document.getElementById(element).innerHTML + postHtml;
 
-      var blob = new Blob(['\ufeff', html], {
-        type: 'application/msword',
-      })
+      var blob = new Blob(["\ufeff", html], {
+        type: "application/msword"
+      });
 
       // Specify link url
-      var url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html)
+      var url =
+        "data:application/vnd.ms-word;charset=utf-8," +
+        encodeURIComponent(html);
 
       // Specify file name
-      filename = filename ? filename + '.doc' : 'document.doc'
+      filename = filename ? filename + ".doc" : "document.doc";
 
       // Create download link element
-      var downloadLink = document.createElement('a')
+      var downloadLink = document.createElement("a");
 
-      document.body.appendChild(downloadLink)
+      document.body.appendChild(downloadLink);
 
       if (navigator.msSaveOrOpenBlob) {
-        navigator.msSaveOrOpenBlob(blob, filename)
+        navigator.msSaveOrOpenBlob(blob, filename);
       } else {
         // Create a link to the file
-        downloadLink.href = url
+        downloadLink.href = url;
 
         // Setting the file name
-        downloadLink.download = filename
+        downloadLink.download = filename;
 
         // triggering the function
-        downloadLink.click()
+        downloadLink.click();
       }
 
-      document.body.removeChild(downloadLink)
-    },
+      document.body.removeChild(downloadLink);
+    }
   },
   computed: {
     fuelUsedThousand() {
       return (this.input.fuelUsed / 1000).toFixed(4);
     },
     co2emission() {
-      return (this.fuelUsedThousand * this.vehicletype * this.emissionfactorco2).toFixed(4);
+      return (
+        this.fuelUsedThousand *
+        this.vehicletype *
+        this.emissionfactorco2
+      ).toFixed(4);
     },
     no2emission() {
-      return ((this.fuelUsedThousand * this.vehicletype * this.selectedch4n2o.n2odefault) / 1000 * this.vehiclecondition * this.yearsused).toFixed(4);
+      return (
+        ((this.fuelUsedThousand *
+          this.vehicletype *
+          this.selectedch4n2o.n2odefault) /
+          1000) *
+        this.vehiclecondition *
+        this.yearsused
+      ).toFixed(4);
     },
     ch4emission() {
-      return ((this.fuelUsedThousand * this.vehicletype * this.selectedch4n2o.ch4default) / 1000 * this.vehiclecondition * this.yearsused).toFixed(4);
+      return (
+        ((this.fuelUsedThousand *
+          this.vehicletype *
+          this.selectedch4n2o.ch4default) /
+          1000) *
+        this.vehiclecondition *
+        this.yearsused
+      ).toFixed(4);
     },
     co2equivemission() {
-      return (Number(this.co2emission) + Number(this.no2emission) * 310 + Number(this.ch4emission) * 21).toFixed(4);
-    },
-  },
-}
+      return (
+        Number(this.co2emission) +
+        Number(this.no2emission) * 310 +
+        Number(this.ch4emission) * 21
+      ).toFixed(4);
+    }
+  }
+};
 </script>
 
 <style scoped>
 .orientation {
-  width: 400px /* normal width */
+  width: 400px; /* normal width */
 }
 @media print {
   .orientation {
-    width: 100% /* print width */
+    width: 100%; /* print width */
   }
 }
 </style>
